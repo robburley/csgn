@@ -1,6 +1,6 @@
 @extends('layout.web')
 
-@section('title', '')
+@section('title', '| Counter Strike Global News')
 
 @section('content')
     <div class="flex flex-wrap -mx-4">
