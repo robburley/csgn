@@ -19,15 +19,16 @@
         @endif
 
         @foreach($articles as $article)
-            <div class="flex w-full sm:w-1/2 lg:w-1/4  px-4">
-                <div class="w-full mb-4">
-                    <img src="https://via.placeholder.com/400x200" class="w-full border-b-4 border-orange">
+            <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-4">
+                <img src="https://via.placeholder.com/400x200"
+                     alt="{{ $article->title }}"
+                     class="w-full border-b-4 border-orange"
+                >
 
-                    <div class="py-2">
-                        <h3 class="font-normal text-grey-dark">
-                            {{ $article->title }}
-                        </h3>
-                    </div>
+                <div class="py-2">
+                    <h3 class="font-normal text-grey-dark">
+                        {{ $article->title }}
+                    </h3>
                 </div>
             </div>
         @endforeach
