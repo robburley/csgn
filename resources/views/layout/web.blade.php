@@ -24,7 +24,7 @@
             {{ config('app.name') }}
         </div>
 
-        <div class="flex items-center justify-end  bg-black text-white flex-1 py-4 px-2">
+        <div class="flex flex-wrap items-center justify-end bg-black text-white flex-1 py-4 px-2">
             @foreach($navHelper->categories() as $category)
                 <div class="px-2">
                     <a href="#" class="text-white no-underline hover:text-orange">
@@ -35,14 +35,14 @@
         </div>
     </nav>
 
-    <main class="container mx-auto mt-8">
+    <main class="container mx-auto mt-8 px-4 sm:px-0">
         @yield('content')
     </main>
 
     <footer class="flex bg-black border-4-2 border-orange w-full py-8 mt-8">
         <div class="container mx-auto flex flex-wrap">
             @foreach($navHelper->categories() as $category)
-                <div class="w-1/4 p-4">
+                <div class="w-full sm:w-1/2 md:w-1/4 p-4">
                     <a href="#" class="text-white no-underline hover:text-orange">
                         {{ ucwords($category->name) }}
                     </a>
