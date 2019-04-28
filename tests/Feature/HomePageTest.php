@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Facades\Tests\SetUp\ArticleFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,7 +14,7 @@ class HomePageTest extends TestCase
     /** @test */
     public function only_show_published_articles()
     {
-        $article = factory('App\Article')->create(['published_at' => null]);
+        $article = ArticleFactory::create(['published_at' => null]);
 
         $this->get('/')
             ->assertDontSee($article->title);
@@ -26,7 +27,7 @@ class HomePageTest extends TestCase
             ->create()
             ->sortByDesc('published_at');
 
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
         factory('App\ArticleView')->create(['article_id' => $article->id]);
 
         $this->get('/')
@@ -37,7 +38,7 @@ class HomePageTest extends TestCase
     public function see_most_popular_article()
     {
         $articles = factory('App\Article', 3)->create()->sortByDesc('published_at');
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
         factory('App\ArticleView')->create(['article_id' => $article->id]);
 
         $this->get('/')

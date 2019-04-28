@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Facades\Tests\SetUp\ArticleFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,7 +14,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function a_published_article_can_be_viewed()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->get($article->path())
             ->assertStatus(200)
@@ -23,7 +24,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function an_unpublished_article_cannot_be_viewed()
     {
-        $article = factory('App\Article')->create(['published_at' => null]);
+        $article = ArticleFactory::create(['published_at' => null]);
 
         $this->get($article->path())
             ->assertStatus(404);
@@ -32,7 +33,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function shows_its_categories()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->get($article->path())
             ->assertSee($article->category->name);
@@ -41,7 +42,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function shows_a_headline()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->assertNotNull($article->headline);
 
@@ -52,7 +53,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function shows_a_creator()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->assertNotNull($article->creator);
 
@@ -63,7 +64,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function shows_a_updated_date()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->get($article->path())
             ->assertSee($article->creator->updated_at->format('d F Y H:i'));
@@ -72,7 +73,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function shows_a_content()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->assertNotNull($article->content);
 
@@ -83,8 +84,8 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function shows_related_articles()
     {
-        $article1 = factory('App\Article')->create();
-        $article2 = factory('App\Article')->create(['category_id' => $article1->category_id]);
+        $article1 = ArticleFactory::create();
+        $article2 = ArticleFactory::create(['category_id' => $article1->category_id]);
 
         $this->assertEquals($article1->relatedArticles()->first()->id, $article2->id);
 
@@ -95,7 +96,7 @@ class ViewArticleTest extends TestCase
     /** @test */
     public function shows_tags()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $tags = factory('App\Tag', 3)->create();
 

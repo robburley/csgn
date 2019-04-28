@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use Facades\Tests\SetUp\ArticleFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -12,7 +13,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function has_a_category()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->assertInstanceOf('App\Category', $article->category);
     }
@@ -20,7 +21,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function has_comments()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         factory('App\Comment', 10)->create(['article_id' => $article->id]);
 
@@ -32,7 +33,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function has_views()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $articleView = factory('App\ArticleView')->create(['article_id' => $article->id]);
 
@@ -46,7 +47,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function has_a_path()
     {
-        $article = factory('App\Article')->create();
+        $article = ArticleFactory::create();
 
         $this->assertEquals($article->path(), route('articles.show', $article));
     }
@@ -54,9 +55,9 @@ class ArticleTest extends TestCase
     /** @test */
     public function article_has_a_unique_slug()
     {
-        $article = factory('App\Article')->create(['title' => 'test']);
+        $article = ArticleFactory::create(['title' => 'test']);
 
-        $duplicateArticle = factory('App\Article')->create(['title' => 'test']);
+        $duplicateArticle = ArticleFactory::create(['title' => 'test']);
 
         $this->assertNotEquals($article->slug, $duplicateArticle->slug);
     }
@@ -64,7 +65,7 @@ class ArticleTest extends TestCase
     /** @test */
     public function has_tags()
     {
-        $article = factory('App\Article')->create(['title' => 'test']);
+        $article = ArticleFactory::create(['title' => 'test']);
 
         $tag = factory('App\Tag')->create();
 
