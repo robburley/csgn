@@ -10,5 +10,6 @@ $factory->define(Article::class, function (Faker $faker) {
         'title' => $faker->sentence(4),
         'views' => $faker->numberBetween(0, 1000),
         'published_at' => $faker->dateTimeThisMonth,
+        'category_id' => factory('App\Category'),
     ];
 });

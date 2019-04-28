@@ -15,6 +15,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('category_id');
             $table->string('title');
             $table->unsignedBigInteger('views')->default(0);
             $table->timestamp('published_at')->nullable();
