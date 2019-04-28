@@ -10,6 +10,15 @@ class HomePageTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function only_show_published_articles()
+    {
+        $article = factory('App\Article')->create(['published_at' => null]);
+
+        $this->get('/')
+            ->assertDontSee($article->title);
+    }
+
+    /** @test */
     public function see_articles()
     {
         $articles = factory('App\Article', 3)
