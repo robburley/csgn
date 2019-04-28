@@ -18,7 +18,7 @@
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
-<body class="bg-orange-lightest">
+<body class="bg-orange-lightest text-black">
 <div id="app">
     <nav class="flex flex-col sm:flex-row fixed pin-t w-full">
         <div class="flex items-center bg-orange text-white py-4 px-6">
