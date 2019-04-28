@@ -23,8 +23,7 @@ class HomePageTest extends TestCase
     /** @test */
     public function see_articles()
     {
-        $articles = factory('App\Article', 3)
-            ->create()
+        $articles = ArticleFactory::create([], 3)
             ->sortByDesc('published_at');
 
         $article = ArticleFactory::create();
@@ -37,8 +36,11 @@ class HomePageTest extends TestCase
     /** @test */
     public function see_most_popular_article()
     {
-        $articles = factory('App\Article', 3)->create()->sortByDesc('published_at');
+        $articles = ArticleFactory::create([], 3)
+            ->sortByDesc('published_at');
+
         $article = ArticleFactory::create();
+
         factory('App\ArticleView')->create(['article_id' => $article->id]);
 
         $this->get('/')
