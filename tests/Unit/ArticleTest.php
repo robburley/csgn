@@ -55,8 +55,9 @@ class ArticleTest extends TestCase
     public function article_has_a_unique_slug()
     {
         $article = factory('App\Article')->create(['title' => 'test']);
-        $duplicateArticle = factory('App\Article')->create(['title' => 'test']);
         
+        $duplicateArticle = factory('App\Article')->create(['title' => 'test']);
+
         $this->assertNotEquals($article->slug, $duplicateArticle->slug);
     }
 }
