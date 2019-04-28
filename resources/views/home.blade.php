@@ -46,11 +46,11 @@
                 <a class="w-1/2 lg:w-full mr-4 lg:mr-0" href="{{ url('/') }}">
                     <img src="https://via.placeholder.com/400x200"
                          alt="{{ $article->title }}"
-                         class="w-full border-b-4 border-orange"
+                         class="w-full border-b-4 border-orange hover:border-black"
                     >
                 </a>
 
-                <div class="flex flex-col w-1/2 lg:w-full py-2">
+                <div class="flex flex-col w-1/2 lg:w-full py-2  group-hover:text-orange">
                     <div class="flex justify-between items-end pb-2 text-sm">
                         <a class="font-normal text-grey no-underline hover:text-orange"
                            href="{{ url('/') }}"

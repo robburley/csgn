@@ -49174,8 +49174,8 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/robburley/projects/news/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/robburley/projects/news/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/robburley/projects/csgn/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/robburley/projects/csgn/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
