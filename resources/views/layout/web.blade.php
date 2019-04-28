@@ -20,7 +20,7 @@
 
 <body class="bg-orange-lightest text-black leading-normal">
 <div id="app">
-    <nav class="flex flex-col sm:flex-row fixed pin-t w-full">
+    <nav class="flex flex-col md:flex-row fixed pin-t w-full">
         <div class="flex items-center bg-orange text-white py-4 px-6">
             <a href="{{ route('home') }}"
                class="flex items-center text-white hover:text-black no-underline font-bold">
@@ -29,10 +29,10 @@
                 {{ config('app.name') }}
             </a>
 
-            <span class="ml-auto sm:hidden">Menu</span>
+            <span class="ml-auto block md:hidden">Menu</span>
         </div>
 
-        <div class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-end bg-black text-white flex-1 py-4 px-2">
+        <div class="hidden md:flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-end bg-black text-white flex-1 py-4 px-2">
             @foreach($navHelper->categories() as $category)
                 <div class="px-2 py-4">
                     <a href="#" class="text-white tracking-wide no-underline hover:text-orange">
