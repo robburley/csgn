@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css"
 </head>
 
-<body class="bg-orange-lightest text-black">
+<body class="bg-orange-lightest text-black leading-normal">
 <div id="app">
     <nav class="flex flex-col sm:flex-row fixed pin-t w-full">
         <div class="flex items-center bg-orange text-white py-4 px-6">

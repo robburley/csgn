@@ -35,6 +35,11 @@ class Category extends Model
         return $this->hasMany(self::class, 'parent_id');
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
     public function getParents($categories = [])
     {
         array_unshift($categories, $this);

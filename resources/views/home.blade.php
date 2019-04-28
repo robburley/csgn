@@ -44,7 +44,7 @@
 
         @foreach($articles as $article)
             <div class="w-full lg:w-1/3 px-4 mb-4 flex flex-row lg:flex-col">
-                <a class="w-1/2 lg:w-full mr-4 lg:mr-0" href="{{ route('articles.show', $featured) }}">
+                <a class="w-1/2 lg:w-full mr-4 lg:mr-0" href="{{ route('articles.show', $article) }}">
                     <img src="https://via.placeholder.com/400x200"
                          alt="{{ $article->title }}"
                          class="w-full border-b-4 border-orange hover:border-black"
@@ -60,14 +60,14 @@
                         </a>
 
                         <a class="flex items-center text-grey no-underline hover:text-orange"
-                           href="{{ route('articles.show', $featured) }}"
+                           href="{{ route('articles.show', $article) }}"
                         >
-                            {{ $featured->comments_count }} <i class="fa fa-comment text-orange pl-1"></i>
+                            {{ $article->comments_count }} <i class="fa fa-comment text-orange pl-1"></i>
                         </a>
                     </div>
 
                     <a class="font-normal text-black no-underline hover:text-orange text-xl"
-                       href="{{ route('articles.show', $featured) }}"
+                       href="{{ route('articles.show', $article) }}"
                     >
                         {{ $article->title }}
                     </a>
