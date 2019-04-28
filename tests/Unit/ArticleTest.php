@@ -42,4 +42,21 @@ class ArticleTest extends TestCase
 
         $this->assertTrue($article->views->contains($articleView));
     }
+
+    /** @test */
+    public function has_a_path()
+    {
+        $article = factory('App\Article')->create();
+
+        $this->assertEquals($article->path(), route('articles.show', $article));
+    }
+
+    /** @test */
+    public function article_has_a_unique_slug()
+    {
+        $article = factory('App\Article')->create(['title' => 'test']);
+        $duplicateArticle = factory('App\Article')->create(['title' => 'test']);
+        
+        $this->assertNotEquals($article->slug, $duplicateArticle->slug);
+    }
 }
