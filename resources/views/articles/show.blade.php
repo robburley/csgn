@@ -79,7 +79,7 @@
 
                 <div class="flex p-4 pb-2 bg-grey-light border-2 border-grey-light">
                     @foreach($article->tags as $tag)
-                        <a href="/"
+                        <a href="{{ route('tags.show', $tag) }}"
                            class="mr-2 mb-2 px-4 py-2 bg-orange text-black no-underline tracking-wide hover:bg-orange-light">
                             {{ $tag->name }}
                         </a>

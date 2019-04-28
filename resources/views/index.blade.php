@@ -15,7 +15,7 @@
                     <div class="px-2 py-4 flex flex-col">
                         <div class="flex justify-between items-end pb-2 ">
                             <a class="font-normal text-grey text-sm no-underline hover:text-orange"
-                               href="{{ route('home') }}"
+                               href="{{ route('categories.show', $featured->category) }}"
                             >
                                 {{ $featured->category->name }}
                             </a>
@@ -54,7 +54,7 @@
                 <div class="flex flex-col w-1/2 lg:w-full py-2  group-hover:text-orange">
                     <div class="flex justify-between items-end pb-2 text-sm">
                         <a class="font-normal text-grey no-underline hover:text-orange"
-                           href="{{ route('home') }}"
+                           href="{{ route('categories.show', $article->category) }}"
                         >
                             {{ $article->category->name }}
                         </a>

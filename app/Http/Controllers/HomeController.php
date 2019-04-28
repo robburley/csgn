@@ -23,6 +23,6 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-        return view('home', compact(['articles', 'featured']));
+        return view('index', compact(['articles', 'featured']));
     }
 }
