@@ -48,7 +48,7 @@
                 <h4 class="pb-4">Recommended</h4>
 
                 @foreach($article->relatedArticles() as $relatedArticle)
-                    <div class="w-full mb-4 flex">
+                    <div class="flex  w-full mb-4 pb-2 border-b-2 border-grey-light">
                         <a class="w-1/2 mr-4" href="{{ route('articles.show', $relatedArticle) }}">
                             <img src="https://via.placeholder.com/400x200"
                                  alt="{{ $relatedArticle->title }}"

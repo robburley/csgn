@@ -1,4 +1,4 @@
-<ul class="flex items-center list-reset mb-8">
+<ul class="flex items-center list-reset mb-4">
     @foreach($breadcrumbs as $breadcrumb)
         <li class="pr-2">
             <img src="{{ asset('images/counter-strike.png') }}" style="height: 25px;">
