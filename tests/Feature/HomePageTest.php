@@ -3,11 +3,12 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class HomePageTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithFaker;
 
     /** @test */
     public function only_show_published_articles()
@@ -25,7 +26,8 @@ class HomePageTest extends TestCase
             ->create()
             ->sortByDesc('published_at');
 
-        factory('App\Article')->create(['views' => 999]);
+        $article = factory('App\Article')->create();
+        factory('App\ArticleView')->create(['article_id' => $article->id]);
 
         $this->get('/')
             ->assertSeeInOrder($articles->pluck('title')->toArray());
@@ -35,7 +37,8 @@ class HomePageTest extends TestCase
     public function see_most_popular_article()
     {
         $articles = factory('App\Article', 3)->create()->sortByDesc('published_at');
-        $article = factory('App\Article')->create(['views' => 999]);
+        $article = factory('App\Article')->create();
+        factory('App\ArticleView')->create(['article_id' => $article->id]);
 
         $this->get('/')
             ->assertSee($article->title)
