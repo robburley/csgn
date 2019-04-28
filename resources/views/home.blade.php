@@ -58,9 +58,11 @@
                             {{ $article->category->name }}
                         </a>
 
-                        <div class="text-grey flex items-center">
+                        <a class="flex items-center text-grey no-underline hover:text-orange"
+                           href="{{ url('/') }}"
+                        >
                             {{ $featured->comments_count }} <i class="fa fa-comment text-orange pl-1"></i>
-                        </div>
+                        </a>
                     </div>
 
                     <a class="font-normal text-black no-underline hover:text-orange text-xl"
