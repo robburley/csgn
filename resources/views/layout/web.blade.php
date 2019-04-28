@@ -20,9 +20,12 @@
 <div id="app">
     <nav class="flex flex-col sm:flex-row fixed pin-t w-full">
         <div class="flex items-center bg-orange text-white py-4 px-6">
-            <img src="{{ url('images/counter-strike.png') }}" style="height: 50px;">
+            <a href="{{ url('/') }}"
+               class="flex items-center text-white hover:text-black no-underline font-bold">
+                <img src="{{ url('images/counter-strike.png') }}" style="height: 50px;">
 
-            {{ config('app.name') }}
+                {{ config('app.name') }}
+            </a>
 
             <span class="ml-auto sm:hidden">Menu</span>
         </div>

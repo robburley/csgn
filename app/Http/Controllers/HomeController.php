@@ -13,7 +13,7 @@ class HomeController extends Controller
 
         $articles = Article::latest('published_at')
             ->where('id', '!=', optional($featured)->id)
-            ->take(4)
+            ->take(3)
             ->get();
 
         return view('home', compact('articles', 'featured'));
