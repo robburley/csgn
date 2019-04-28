@@ -27,6 +27,7 @@ class HomePageTest extends TestCase
             ->sortByDesc('published_at');
 
         $article = ArticleFactory::create();
+        
         factory('App\ArticleView')->create(['article_id' => $article->id]);
 
         $this->get('/')
