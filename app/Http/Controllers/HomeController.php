@@ -8,11 +8,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $featured = Article::withCount([
-            'comments',
-            'views',
-        ])
-            ->published()
+        $featured = Article::published()
+            ->withCount([
+                'comments',
+                'views',
+            ])
             ->orderByDesc('views_count')
             ->first();
 
