@@ -8,7 +8,8 @@
             <div class="flex w-full px-4 mb-6">
                 <div class="w-full bg-black shadow-md">
                     <a class="w-full" href="{{ route('articles.show', $featured) }}">
-                        <img src="https://via.placeholder.com/1200x600" class="w-full border-b-4 border-orange">
+                        <img src="https://via.placeholder.com/1200x600"
+                             class="w-full border-b-4 border-orange hover:border-black">
                     </a>
 
                     <div class="px-2 py-4 flex flex-col">
