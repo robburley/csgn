@@ -15,22 +15,22 @@
                 <h4 class="mr-2">Share</h4>
 
                 <a href="" class="no-underline text-white">
-                    <i class="fab fa-facebook-f px-5 py-4 mr-2 bg-blue-darker rounded-full"></i>
+                    <i class="fab fa-facebook-f px-5 py-4 mr-2 bg-blue-darker rounded-full hover:shadow-lg"></i>
                 </a>
 
                 <a href="" class="no-underline text-white">
-                    <i class="fab fa-twitter p-4 mr-2 bg-blue-light rounded-full"></i>
+                    <i class="fab fa-twitter p-4 mr-2 bg-blue-light rounded-full hover:shadow-lg"></i>
                 </a>
 
                 <a href="" class="no-underline text-white">
-                    <i class="fab fa-linkedin px-4 py-4 mr-2 bg-blue-dark rounded-full"></i>
+                    <i class="fab fa-linkedin px-4 py-4 mr-2 bg-blue-dark rounded-full hover:shadow-lg"></i>
                 </a>
 
             </div>
 
             <div class="ml-auto pl-4 border-l border-grey-light">
                 <div class="">
-                    By <span>{{ $article->creator->name }}</span>
+                    By <span class="font-bold">{{ $article->creator->name }}</span>
                 </div>
 
                 <div class="text-xs">
@@ -40,23 +40,23 @@
         </div>
 
         <div class="w-full pl-1 mb-4 flex ">
-            <div class="text-lg flex-1 pr-2">
+            <div class="text-lg flex-1 pr-4">
                 {!! $article->content !!}
             </div>
 
-            <div class="w-1/4">
+            <div class="w-1/4 hidden lg:block">
                 <h4 class="pb-4">Recommended</h4>
 
                 @foreach($article->relatedArticles() as $relatedArticle)
-                    <div class="flex  w-full mb-4 pb-2 border-b-2 border-grey-light">
-                        <a class="w-1/2 mr-4" href="{{ route('articles.show', $relatedArticle) }}">
+                    <div class="flex flex-wrap w-full mb-4 pb-2 border-b-2 border-grey-light">
+                        <a class="w-full mr-4" href="{{ route('articles.show', $relatedArticle) }}">
                             <img src="https://via.placeholder.com/400x200"
                                  alt="{{ $relatedArticle->title }}"
                                  class="w-full border-b-4 border-orange hover:border-black"
                             >
                         </a>
 
-                        <div class="flex w-1/2">
+                        <div class="flex flex-1">
                             <a class="font-normal text-black no-underline hover:text-orange text-sm"
                                href="{{ route('articles.show', $relatedArticle) }}"
                             >

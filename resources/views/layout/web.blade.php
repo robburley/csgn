@@ -36,7 +36,7 @@
         <div class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-end bg-black text-white flex-1 py-4 px-2">
             @foreach($navHelper->categories() as $category)
                 <div class="px-2 py-4">
-                    <a href="#" class="text-white no-underline hover:text-orange">
+                    <a href="#" class="text-white tracking-wide no-underline hover:text-orange">
                         {{ $category->name }}
                     </a>
                 </div>
