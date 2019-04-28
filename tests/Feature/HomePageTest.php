@@ -50,7 +50,7 @@ class HomePageTest extends TestCase
     {
         $categories = factory('App\Category', 5)->create();
 
-        $childCategories = $categories->each(function ($category) {
+        $childCategories = $categories->map(function ($category) {
             return factory('App\Category')->create(['parent_id' => $category->id]);
         });
 
