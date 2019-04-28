@@ -91,4 +91,17 @@ class ViewArticleTest extends TestCase
         $this->get($article1->path())
             ->assertSee($article2->title);
     }
+
+    /** @test */
+    public function shows_tags()
+    {
+        $article = factory('App\Article')->create();
+
+        $tags = factory('App\Tag', 3)->create();
+
+        $article->tags()->attach($tags);
+
+        $this->get($article->path())
+            ->assertSeeInOrder($tags->pluck('name')->toArray());
+    }
 }

@@ -47,6 +47,11 @@ class Article extends Model
             ->withTrashed();
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     public function scopePublished($query)
     {
         return $query->whereNotNull('published_at');

@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="w-full pl-1 mb-4 flex ">
+        <div class="w-full pl-1 mb-4 flex">
             <div class="text-lg flex-1 pr-4">
                 {!! $article->content !!}
             </div>
@@ -69,5 +69,23 @@
 
         </div>
 
+        @if($article->tags->count())
+            <div class="w-full pl-1 mb-4">
+                <h4 class="mb-4 flex items-center">
+                    <img src="{{ asset('images/counter-strike.png') }}" class="pr-2" style="height: 25px;">
+
+                    More About
+                </h4>
+
+                <div class="flex p-4 pb-2 bg-grey-light border-2 border-grey-light">
+                    @foreach($article->tags as $tag)
+                        <a href="/"
+                           class="mr-2 mb-2 px-4 py-2 bg-orange text-black no-underline tracking-wide hover:bg-orange-light">
+                            {{ $tag->name }}
+                        </a>
+                    @endforeach
+                </div>
+            </div>
     </div>
+    @endif
 @endsection
