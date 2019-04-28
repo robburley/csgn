@@ -28,4 +28,13 @@ class ViewArticleTest extends TestCase
         $this->get($article->path())
             ->assertStatus(404);
     }
+
+    /** @test */
+    public function an_article_shows_its_categories()
+    {
+        $article = factory('App\Article')->create();
+        
+        $this->get($article->path())
+            ->assertSee($article->category->name);
+    }
 }
