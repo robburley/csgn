@@ -59,10 +59,14 @@ class Article extends Model
 
     public function relatedArticles()
     {
-        return $this->category->articles()
+        $related = $this->category->articles()
             ->where('id', '!=', $this->id)
             ->latest()
             ->take(4)
             ->get();
+
+        return $related->count()
+            ? $related
+            : Article::inRandomOrder()->take(4)->get();
     }
 }
