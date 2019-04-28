@@ -9,6 +9,8 @@ class NavHelper
 {
     public function categories()
     {
-        return Category::orderBy('name')->get();
+        return Category::whereNull('parent_id')
+            ->orderBy('name')
+            ->get();
     }
 }

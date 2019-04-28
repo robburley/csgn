@@ -46,15 +46,16 @@ class HomePageTest extends TestCase
     }
 
     /** @test */
-    public function see_categories()
+    public function see_top_level_categories()
     {
-        $categories = factory('App\Category', 5)->create()
-            ->sortBy('name')
-            ->map(function ($category) {
-                return ucwords($category->name);
-            });
+        $categories = factory('App\Category', 5)->create();
+
+        $childCategories = $categories->each(function ($category) {
+            return factory('App\Category')->create(['parent_id' => $category->id]);
+        });
 
         $this->get('/')
-            ->assertSeeInOrder($categories->toArray());
+            ->assertSeeInOrder($categories->sortBy('name')->pluck('name')->toArray())
+            ->assertDontSee($childCategories->first()->name);
     }
 }

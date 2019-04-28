@@ -36,7 +36,7 @@
             @foreach($navHelper->categories() as $category)
                 <div class="px-2 py-4">
                     <a href="#" class="text-white no-underline hover:text-orange">
-                        {{ ucwords($category->name) }}
+                        {{ $category->name }}
                     </a>
                 </div>
             @endforeach
